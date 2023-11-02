@@ -1,15 +1,19 @@
 # .github/workflows/chromatic.yml
 
 # Workflow name
-name: "Update Chromatic Baseline"
+name: "Check for Visual Regressions"
 
 # Event for the workflow
 on:
-  push:
+  pull_request:
     branches:
       - "master"
       - "main"
   workflow_dispatch:
+
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
 
 # List of jobs
 jobs:
@@ -23,4 +27,4 @@ jobs:
         uses: chromaui/action@v1
         with:
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-          autoAcceptChanges: true
+          exitZeroOnChanges: true
