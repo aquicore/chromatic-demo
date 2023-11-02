@@ -49,7 +49,7 @@ export const Small = {
 export const Click = {
   args: {
     primary: true,
-    label: "Button",
+    label: "Button to Click",
     clickedText: "You clicked the button",
   },
   play: async ({ canvasElement }) => {
