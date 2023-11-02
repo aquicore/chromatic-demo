@@ -23,14 +23,6 @@ export const Primary = {
   args: {
     primary: true,
     label: "Button",
-    clickedText: "You clicked the button",
-  },
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-
-    await userEvent.click(canvas.getByRole("button"));
-
-    await expect(canvas.getByText("You clicked the button")).toBeInTheDocument();
   },
 };
 
@@ -51,5 +43,20 @@ export const Small = {
   args: {
     size: "small",
     label: "Button",
+  },
+};
+
+export const Click = {
+  args: {
+    primary: true,
+    label: "Button",
+    clickedText: "You clicked the button",
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+
+    await userEvent.click(canvas.getByRole("button"));
+
+    await expect(canvas.getByText("You clicked the button")).toBeInTheDocument();
   },
 };
