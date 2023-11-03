@@ -50,7 +50,7 @@ export const Click = {
   args: {
     primary: true,
     label: "Button to Click",
-    clickedText: "You clicked the button",
+    clickedText: "Clicked!",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
