@@ -57,6 +57,6 @@ export const Click = {
 
     await userEvent.click(canvas.getByRole("button"));
 
-    await expect(canvas.getByText("You clicked the button")).toBeInTheDocument();
+    await expect(canvas.getByText("Clicked!")).toBeInTheDocument();
   },
 };
