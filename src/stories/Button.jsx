@@ -16,7 +16,7 @@ export const Button = ({ primary, backgroundColor, size, label, onClick, clicked
   }, [onClick]);
 
   const style = {
-    border: "thin solid red",
+    border: "thin solid orange",
     backgroundColor,
   };
 
