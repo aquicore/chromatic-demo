@@ -15,12 +15,17 @@ export const Button = ({ primary, backgroundColor, size, label, onClick, clicked
     onClick();
   }, [onClick]);
 
+  const style = {
+    border: "thin solid orange",
+    backgroundColor,
+  };
+
   return (
     <>
       <button
         type="button"
         className={["storybook-button", `storybook-button--${size}`, mode].join(" ")}
-        style={backgroundColor && { backgroundColor }}
+        style={style}
         {...props}
         onClick={internalOnClick}
       >

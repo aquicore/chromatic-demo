@@ -50,13 +50,13 @@ export const Click = {
   args: {
     primary: true,
     label: "Button to Click",
-    clickedText: "You clicked the button",
+    clickedText: "Clicked!",
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
 
     await userEvent.click(canvas.getByRole("button"));
 
-    await expect(canvas.getByText("You clicked the button")).toBeInTheDocument();
+    await expect(canvas.getByText("Clicked!")).toBeInTheDocument();
   },
 };
