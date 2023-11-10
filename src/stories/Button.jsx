@@ -2,18 +2,30 @@ import PropTypes from "prop-types";
 import React, { useCallback, useState } from "react";
 import "./button.css";
 
+// Utility Function
+export const randomUtilityFunction = (a, b) => {
+  return a + b;
+}
+
+// Custom Hook
+const useOnClick = (handler) => {
+  const [clicked, setClicked] = useState(false);
+
+  const onClick = useCallback(() => {
+    setClicked(true);
+    handler();
+  }, [handler]);
+
+  return { clicked, onClick };
+};
+
 /**
  * Primary UI component for user interaction
  */
-export const Button = ({ primary, backgroundColor, size, label, onClick, clickedText, ...props }) => {
+export const Button = ({ primary, backgroundColor, size, label, clickedText, ...props }) => {
   const mode = primary ? "storybook-button--primary" : "storybook-button--secondary";
 
-  const [clicked, setClicked] = useState(false);
-
-  const internalOnClick = useCallback(() => {
-    setClicked(true);
-    onClick();
-  }, [onClick]);
+  const { clicked, onClick } = useOnClick(props.onClick);
 
   const style = {
     border: "thin solid orange",
@@ -27,7 +39,7 @@ export const Button = ({ primary, backgroundColor, size, label, onClick, clicked
         className={["storybook-button", `storybook-button--${size}`, mode].join(" ")}
         style={style}
         {...props}
-        onClick={internalOnClick}
+        onClick={onClick}
       >
         {label}
       </button>
