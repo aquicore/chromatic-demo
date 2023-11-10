@@ -4,12 +4,21 @@ const config = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-docs",
     "@storybook/preset-create-react-app",
     "@storybook/addon-onboarding",
-    "@storybook/addon-interactions",
+    {
+      name: "@storybook/addon-coverage",
+      options: {
+        istanbul: {
+          include: ["**/"],
+        },
+      },
+    },
   ],
   framework: {
-    name: "@storybook/react-webpack5",
+    name: "@storybook/react-vite",
     options: {},
   },
   docs: {
