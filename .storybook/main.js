@@ -8,7 +8,14 @@ const config = {
     "@storybook/addon-docs",
     "@storybook/preset-create-react-app",
     "@storybook/addon-onboarding",
-    "@storybook/addon-coverage"
+    {
+      name: "@storybook/addon-coverage",
+      options: {
+        istanbul: {
+          include: ["**/"],
+        },
+      },
+    },
   ],
   framework: {
     name: "@storybook/react-vite",

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button renders correctly 1`] = `
+<DocumentFragment>
+  <button
+    class="storybook-button storybook-button--medium storybook-button--primary"
+    style="border: thin solid orange; background-color: steelblue;"
+    type="button"
+  >
+    Test Button
+  </button>
+</DocumentFragment>
+`;
